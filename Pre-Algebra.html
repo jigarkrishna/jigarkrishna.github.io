@@ -1,3 +1,80 @@
+
+<html>
+<style>
+
+    input {
+        width: 25px;
+        text-align: center;
+    }
+    
+    
+    
+</style>
+<header>
+<title> RK Pre-algebra </title>
+</header>
+
+<body>
+<p> welcome to prealgebra </p>
+    <p> im baked af dawg</p>
+
+    <h1 style="text-align: center"> HERES THE DAMN QUADRATIC CALCULATOR BOI </h1>
+    <script type="text/javascript">
+        function selectForm() {
+            
+        }
+    </script>
+    <script type="text/javascript">
+        function standardCalc {
+            
+        }
+    </script>
+    <script type="text/javascript">
+        function vertexCalc() {
+            var a = parseFloat(document.getElementById("a").value);
+            var h = parseFloat(document.getElementById("h").value);
+            var k = parseFloat(document.getElementById("k").value);
+            
+            var answer1;
+            var answer2;
+            
+            if(isNaN(a) || isNaN(h) || isNaN(k) || a== 0){
+                document.getElementById("zeroes").innerHTML = "THIS IS";
+                document.getElementById("points").innerHTML = "NOT VALID";
+            } else if(-k/a < 0){
+                document.getElementById("zeroes").innerHTML = "The zeroes are: undefined (They are not real numbers)";
+                document.getElementById("points").innerHTML = "There are no points where the function crosses the x-axis";
+            } else {
+                answer1 = h + Math.sqrt(-k/a);
+                answer2 = h - Math.sqrt(-k/a);
+                
+                if(answer1 == answer2){
+                    document.getElementById("zeroes").innerHTML = "The zero is: x = " + answer1 + " (The vertex is on the x-axis)";
+                    document.getElementById("points").innerHTML = "The point where the function touches the x-axis is (" + answer1 + ",0)";
+                } else {
+                    document.getElementById("zeroes").innerHTML = "The zeroes are: x = " + answer1 + " and x = " + answer2;
+                    document.getElementById("points").innerHTML = "The points where the function touches the x-axis are (" + answer1 + ",0) and (" + answer2 + ",0)";
+                }
+            }
+        }
+    </script>
+    
+    <form type="submit" id="vertexForm">
+        <p style="text-align: center; font-size: 20px"> Y = <input type="text" id= "a"> (X - <input type="text" id="h"> )^2  + <input type="text" id="k">
+        </p>
+    </form>
+    <form type="submit" id="standardForm">
+    
+    
+    </form>
+    
+    <p style="text-align:center"><button type="button" onclick='vertexCalc()'> Calculate Roots</button></p>
+    <br>
+    <br>
+    <p style="text-align:center" id="zeroes">The roots are: </p>
+    <p style="text-align:center" id="points"> </p>
+    
+</body>
 <html>
 <header>
 <title> RK Pre-algebra </title>
