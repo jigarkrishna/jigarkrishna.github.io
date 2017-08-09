@@ -13,6 +13,10 @@
         window.onerror= function(){
             alert("something is wrong, check your input");
         }
+        
+        window.onload = function() {
+            document.getElementById("aV").focus();
+        };
     </script>
     
 <style>
@@ -63,9 +67,19 @@
 </header>    
     
 <body>
-
+    
     <script type="text/javascript">
         
+        function Enter(event){
+            $(window).keydown(function(event){
+                if(event.keyCode == 13) {
+                    event.preventDefault();
+                    detectSolve();
+                }
+            });
+        }
+
+                
         function toggleCalc() {
             
             if(document.getElementById("Vform").checked){
@@ -267,7 +281,7 @@
                <b>
                    <!-- this p element is just a really ugly code for writing the thing in vertex form -->
                    <p style="font-size: 20px">
-                       Y = <input class="userBoxVer" type="text" id= "aV"> (X - <input class="userBoxVer" type="text" id="h"> )^2  + <input class="userBoxVer" type="text" id="k">
+                       Y = <input class="userBoxVer" type="text" id= "aV" onkeypress="Enter();"> (X - <input class="userBoxVer" type="text" id="h" onkeypress="Enter();"> )^2  + <input class="userBoxVer" type="text" id="k" onkeypress="Enter();">
                    </p>
                </b>
         </div>
@@ -276,7 +290,7 @@
             <!-- this p element is just a really ugly code for writing the thing in standard form -->
             <b>   
                 <p style="font-size: 20px">
-                       Y = <input class="userBoxVer" type="text" id= "aS"> X^2 + <input class="userBoxVer" type="text" id="b"> X + <input class="userBoxVer" type="text" id="c">
+                       Y = <input class="userBoxVer" type="text" id= "aS" onkeypress="Enter();"> X^2 + <input class="userBoxVer" type="text" id="b" onkeypress="Enter();"> X + <input class="userBoxVer" type="text" id="c" onkeypress="Enter();">
                 </p>
             </b>
         </div>
@@ -291,40 +305,42 @@
 			<input type="radio" id="Sform" name="quadForm" onclick="toggleCalc()"> Standard 
 		</div>
 	</div>
-	
+        
+    <script type="text/javascript" src="button.js"></script>    
+    
 	<div class="row">
 		<div class="col-xs-8 bordered" style="height:233px; border-top: 0px; text-align: center; padding-top: 15px">
 			<div>
-				<button id="DEL"> DEL </button>
-				<button id="left"> &larr; </button>
-				<button id="right"> &rarr; </button>
-                <button id="/"> / </button>
+				<button type="button" id="DEL" onclick="Del()"> DEL </button>
+				<button type="button" id="(" onclick="lparen()"> ( </button>
+				<button type="button" id=")" onclick="rparen()"> ) </button>
+                <button type="button" id="/" onclick="()"> / </button>
 			</div>
 			
 			<div>
-				<button id="7"> 7 </button>
-				<button id="8"> 8 </button>
-				<button id="9"> 9 </button>
-				<button id="*"> * </button>
+				<button type="button" id="7" onclick="Seven()"> 7 </button>
+				<button type="button" id="8" onclick="Eight()"> 8 </button>
+				<button type="button" id="9" onclick="Nine()"> 9 </button>
+				<button type="button" id="*"> * </button>
 			</div>
 			
 			<div>
-				<button id="4"> 4 </button>
-				<button id="5"> 5 </button>
-				<button id="6"> 6 </button>
-				<button id="+"> + </button>
+				<button type="button" id="4" onclick="Four()"> 4 </button>
+				<button type="button" id="5" onclick="Five()"> 5 </button>
+				<button type="button" id="6" onclick="Six()"> 6 </button>
+				<button type="button" id="+"> + </button>
 			</div>
             
 			<div>
-                <button id="1"> 1 </button>
-			    <button id="2"> 2 </button>
-			    <button id="3"> 3 </button>
-				<button id="7"> - </button>
+                <button type="button" id="1" onclick="One()"> 1 </button>
+			    <button type="button" id="2" onclick="Two()"> 2 </button>
+			    <button type="button" id="3" onclick="Three()"> 3 </button>
+				<button type="button" id="7"> - </button>
             </div>
                
             <div>
-                <button id="0"> 0 </button>
-			    <button id="."> . </button>
+                <button type="button" id="0" onclick="Zero()"> 0 </button>
+			    <button type="button" id="." onclick="deci()"> . </button>
                 <button type="button" name="calc" style="width: 115px;" id="solve" onclick="detectSolve()"> Solve </button>
             </div>
 			
